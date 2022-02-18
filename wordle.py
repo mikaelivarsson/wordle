@@ -22,8 +22,14 @@ def remove_illegal(words):
                 words.remove(word)
     return words
 
+<<<<<<< HEAD
 def remove_required(words):
     required = input("Input required characters: ")
+=======
+def remove_required(words, required=""):
+    if required == "":
+        required = input("Input required characters: ")
+>>>>>>> 25a04c4 (when removing required characters in wrong position, also removing words without required character)
     for c in required:
         for word in words.copy():
             if c not in word:
@@ -48,6 +54,10 @@ def remove_required_wrong(words):
     for word in words.copy():
         if word[int(position)] == required:
             words.remove(word)
+<<<<<<< HEAD
+=======
+    words = remove_required(words, required)
+>>>>>>> 25a04c4 (when removing required characters in wrong position, also removing words without required character)
     return words
 
 def remove_wrong_word(words):
