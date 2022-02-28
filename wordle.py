@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
 from english_words import english_words_lower_alpha_set as words
+import ast
+import remove_from_dict
 
 def print_menu():
     print(26*"-","Wordle solver",26*"-")
@@ -55,6 +57,7 @@ def remove_required_wrong(words):
 def remove_wrong_word(words):
     word = input("Input wrong word: ")
     words.remove(word)
+    remove_from_dict.remove(word)
     return words
 
 def print_unique_candidate(words):
@@ -68,10 +71,8 @@ def print_candidates(words):
 
 five_letter_words = set()
 
-# extract only the words including five letters:
-for word in words:
-    if 5 == len(word):
-        five_letter_words.add(word)
+with open('dict.txt','r') as f:
+    five_letter_words = ast.literal_eval(f.read())
 
 loop = True
 choice = -1
