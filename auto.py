@@ -9,7 +9,6 @@ green = (83,141,78)
 yellow = (181,159,59)
 
 q = pyautogui.locateOnScreen('q.png', confidence=0.9)
-print("q: ",q)
 pyautogui.moveTo(q.left, q.top)
 pyautogui.click()
 
